@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthenticationContorller;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ExportController;
+use App\Http\Controllers\GEOlocationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,5 +35,7 @@ Route::post('/change-password', [AuthenticationContorller::class , 'changePasswo
 
 Route::get('/export-excel', [ExportController::class , 'excel']);
 Route::get('/export-vcf', [ExportController::class , 'vcf']);
-// Route::get('/export-pdf', [ExportController::class, 'pdf']);
 Route::get('create-pdf-file', [ExportController::class, 'pdf']);
+
+Route::post('/positionstack-api',[GEOlocationController::class, 'positionStack']);
+Route::post('/arcgis-api',[GEOlocationController::class, 'arcgis']);
